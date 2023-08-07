@@ -1,0 +1,93 @@
+.Contact {
+  width: 100%;
+  background-color: #101010;
+  transition: 1s ease-in-out;
+  transition-delay: 0.2s;
+}
+.contact-container {
+  position: relative;
+}
+.contact-box {
+  width: 100%;
+  padding: 50px 80px 50px 80px;
+  height: 100%;
+}
+.contact-left {
+  width: 30%;
+  color: #ccc;
+}
+.contact-right {
+  width: 70%;
+  margin-left: 50px;
+}
+.contact-text h5 {
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 30px;
+}
+.contact-text p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+.contact-info {
+  margin: 10px 0;
+  justify-content: flex-start;
+}
+.contact-info .icon {
+  font-size: 30px;
+  margin-right: 20px;
+}
+.contact-right .input {
+  margin: 10px 0;
+}
+.contact-right .input:first-child {
+  margin-top: 0;
+}
+.contact-right button {
+  margin-top: 40px;
+  padding: 10px 30px;
+  outline: none;
+  border: 2px #45ff95 solid;
+  color: #45ff95;
+  background-color: transparent;
+  font-size: 16px;
+  transition: 0.5s;
+  cursor: pointer;
+  font-weight: bold;
+}
+.contact-right button:hover {
+  background-color: #45ff95;
+  color: #000;
+}
+
+@media (max-width: 1199px) {
+  .contact-box {
+    padding: 50px 50px 50px 50px;
+  }
+}
+@media (max-width: 850px) {
+  .contact-box {
+    padding: 0px 30px 50px 30px;
+  }
+}
+@media (max-width: 750px) {
+  .contact-box {
+    flex-direction: column;
+  }
+  .contact-left {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .contact-right {
+    width: 100%;
+    margin: 0;
+  }
+}
+@media (max-width: 650px) {
+  .contact-box {
+    padding: 0px 20px 50px 20px;
+  }
+}
