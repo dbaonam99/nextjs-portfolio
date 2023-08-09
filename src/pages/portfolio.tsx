@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 import Layout from '@/layouts';
-import BackgroundLine from '@/components/BackgroundLine';
 import { CursorContext } from '@/contexts/CursorContext';
 import Project from '@/components/Project';
+
+import BackgroundLine from '@/components/BackgroundLine';
 
 function Portfolio() {
   const { updateHoverState } = useContext(CursorContext);

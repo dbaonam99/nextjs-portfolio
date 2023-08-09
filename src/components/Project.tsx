@@ -47,12 +47,8 @@ export default function Project(props) {
         <div className="project-info-box" ref={projectBox}>
           <div
             className="project-close flex-center"
-            onMouseEnter={() => {
-              updateHoverState(true);
-            }}
-            onMouseLeave={() => {
-              updateHoverState(false);
-            }}
+            onMouseEnter={updateHoverState}
+            onMouseLeave={updateHoverState}
             onClick={() => {
               setOpenProject(false);
               document.body.style.overflow = 'unset';

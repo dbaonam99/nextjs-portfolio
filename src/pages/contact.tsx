@@ -4,7 +4,7 @@ import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 import Layout from '@/layouts';
-import BackgroundLine from '@/components/BackgroundLine';
+import BackgroundLine from '@/components/common/BackgroundLine';
 
 function Contact() {
   const [name, setName] = useState('');

@@ -3,13 +3,13 @@ import React, { useMemo, useState } from 'react';
 
 type CursorType = {
   isHover: boolean;
-  updateHoverState: React.MouseEventHandler<HTMLAnchorElement>;
+  updateHoverState: React.MouseEventHandler<HTMLAnchorElement | HTMLDivElement>;
 };
 
 export const CursorContext = React.createContext<CursorType>({
   isHover: false,
   updateHoverState(
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    event: React.MouseEvent<HTMLAnchorElement | HTMLDivElement, MouseEvent>,
   ): void {
     throw new Error('Function not implemented.');
   },
@@ -18,8 +18,10 @@ export const CursorContext = React.createContext<CursorType>({
 export function CursorProvider({ children }: { children: React.ReactNode }) {
   const [isHover, setIsHover] = useState(false);
 
-  const updateHoverState: React.MouseEventHandler<HTMLAnchorElement> = (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  const updateHoverState: React.MouseEventHandler<
+    HTMLAnchorElement | HTMLDivElement
+  > = (
+    event: React.MouseEvent<HTMLAnchorElement | HTMLDivElement, MouseEvent>,
   ) => {
     if (event.type === 'mouseenter') {
       setIsHover(true);

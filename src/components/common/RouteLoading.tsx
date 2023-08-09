@@ -1,11 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { CursorContext } from '@/contexts/CursorContext';
-import { LoadingContext } from '@/contexts/Loading';
+import { LoadingContext } from '@/contexts/LoadingContext';
 
-export default function LoadingChild() {
-  const { loadingChild } = useContext(LoadingContext);
-  const { updateHoverState } = useContext(CursorContext);
+function RouteLoading() {
+  const { loadingChild, updateLoadingChild } = useContext(LoadingContext);
 
   const [animation, setAnimation] = useState(false);
   const [animation2, setAnimation2] = useState(false);
@@ -22,6 +20,10 @@ export default function LoadingChild() {
     setTimeout(() => {
       setAnimation3(true);
     }, 1200);
+    setTimeout(() => {
+      updateLoadingChild(false);
+      document.body.style.overflow = 'unset';
+    }, 2000);
   }, [animation, animation2, animation3]);
 
   useEffect(() => {
@@ -35,9 +37,6 @@ export default function LoadingChild() {
       className={
         loadingChild ? 'loading-child loading-child-show' : 'loading-child'
       }
-      onMouseMove={() => {
-        updateHoverState(false);
-      }}
     >
       <div className="loading-line flex">
         <div className="loading-scroll-line" />
@@ -86,3 +85,5 @@ export default function LoadingChild() {
     </div>
   );
 }
+
+export default RouteLoading;

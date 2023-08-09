@@ -1,10 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import Image from 'next/image';
 
-import BackgroundLine from '@/components/BackgroundLine';
 import Layout from '@/layouts';
+import BackgroundLine from '@/components/common/BackgroundLine';
 
 function About() {
   return (
@@ -21,23 +20,30 @@ function About() {
           </div>
           <div className="about-introduce flex">
             <div className="about-avt flex-center">
-              <Image
-                src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t1.15752-9/138472045_871082040127340_7595270232215518102_n.jpg?_nc_cat=106&ccb=2&_nc_sid=ae9488&_nc_ohc=DBtueculOlMAX_7o2aB&_nc_ht=scontent.fsgn2-3.fna&oh=8326102d792c5c574946a692d4fa8c5e&oe=60267FC4"
+              <img
+                src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
                 alt=""
               />
             </div>
             <div className="about-introduce-text flex-col">
               <div className="about-introduce-title">
-                Hello! My name is <strong>Duong Bao Nam</strong>. I am a third
-                year student at the University of Information Technology (UIT).
-                I have the desire to become a back-end & front‑end developer, I
-                am passionate about building excellent website that improves the
-                lives of those around me.
+                Greetings! I am <strong>Duong Bao Nam</strong>, a full-stack
+                software engineer well-versed in React and NodeJS. I thrive on
+                learning and adapting to new tech trends, while my experience
+                and teamwork make me a reliable asset.
+                <br />
+                <br />
+                <strong>Highest achievement:</strong> I built a customized
+                Minecraft server with almost ~1500 concurrent users when I was
+                in high school. This showcased my technical skills and
+                problem-solving under pressure.
               </div>
               <div className="flex" style={{ flexWrap: 'wrap' }}>
                 <div className="about-introduce-item flex">
                   <div className="about-introduce-left">Age:</div>
-                  <div className="about-introduce-right">21</div>
+                  <div className="about-introduce-right">
+                    {new Date().getFullYear() - 1999}
+                  </div>
                 </div>
                 <div className="about-introduce-item flex">
                   <div className="about-introduce-left">Nationality:</div>
@@ -49,13 +55,13 @@ function About() {
                 </div>
                 <div className="about-introduce-item flex">
                   <div className="about-introduce-left">Address:</div>
-                  <div className="about-introduce-right">
-                    Thu Duc district, Ho Chi Minh City
-                  </div>
+                  <div className="about-introduce-right">Ho Chi Minh City</div>
                 </div>
                 <div className="about-introduce-item flex">
                   <div className="about-introduce-left">Phone:</div>
-                  <div className="about-introduce-right">0948147259</div>
+                  <div className="about-introduce-right">
+                    <a href="tel: +84948147259">+84948147259</a>
+                  </div>
                 </div>
                 <div className="about-introduce-item flex">
                   <div className="about-introduce-left">Email:</div>

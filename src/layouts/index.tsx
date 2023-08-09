@@ -1,41 +1,49 @@
 import { useContext, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import { styled } from 'styled-components';
 
-import { LoadingContext } from '@/contexts/Loading';
-import LoadingChildOut from '@/components/LoadingChildOut';
-import LoadingChild from '@/components/LoadingChild';
-import Cursor from '@/components/Cursor';
+import { LoadingContext } from '@/contexts/LoadingContext';
+import LoadingChildOut from '@/components/common/LoadingChildOut';
+import Cursor from '@/components/common/Cursor';
+import RouteLoading from '@/components/common/RouteLoading';
+import ExpandCircle from '@/components/common/ExpandCircle';
 
-const Header = dynamic(() => import('@/components/Header'), { ssr: false });
-const LoadingPage = dynamic(() => import('@/components/LoadingPage'), {
+const Header = dynamic(() => import('@/components/common/Header'), {
+  ssr: false,
+});
+const IntroLoading = dynamic(() => import('@/components/common/IntroLoading'), {
   ssr: false,
 });
 
+const Container = styled.div`
+  position: relative;
+  background-color: #101010;
+  width: 100%;
+  height: 100%;
+`;
+
 function Layout({ children }: { children: React.ReactNode }) {
-  const { loading, tabChange, setLoadingChild } = useContext(LoadingContext);
+  const { introLoading, tabChange } = useContext(LoadingContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     document.body.style.overflow = 'hidden';
-    setTimeout(() => {
-      setLoadingChild(false);
-      document.body.style.overflow = 'unset';
-    }, 2000);
-  }, []);
+  }, [introLoading]);
 
   return (
     <Cursor>
-      <LoadingPage />
-      {!loading && (
-        <div className="App">
+      <ExpandCircle />
+      <IntroLoading />
+      {!introLoading && (
+        <Container>
           <Header />
 
           {tabChange && <LoadingChildOut />}
 
-          <LoadingChild />
+          <RouteLoading />
 
           {children}
-        </div>
+        </Container>
       )}
     </Cursor>
   );

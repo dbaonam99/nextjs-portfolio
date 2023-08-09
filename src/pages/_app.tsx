@@ -9,13 +9,16 @@ import '@/styles/Header.css';
 import '@/styles/LoadingPage.css';
 import '@/styles/Portfolio.css';
 import { CursorProvider } from '@/contexts/CursorContext';
-import { LoadingProvider } from '@/contexts/Loading';
+import { LoadingProvider } from '@/contexts/LoadingContext';
+import { ExpandCircleProvider } from '@/contexts/ExpandCircleContext';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <LoadingProvider>
       <CursorProvider>
-        <Component {...pageProps} />
+        <ExpandCircleProvider>
+          <Component {...pageProps} />
+        </ExpandCircleProvider>
       </CursorProvider>
     </LoadingProvider>
   );

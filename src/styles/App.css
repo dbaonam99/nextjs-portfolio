@@ -1,9 +1,3 @@
-.App {
-  position: relative;
-  background-color: #101010;
-  width: 100%;
-  height: 100%;
-}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -227,12 +221,7 @@ a:hover {
   z-index: 999999;
   display: none;
 }
-.show-loading {
-  /* visibility: visible;
-  opacity: 1; */
-  display: block;
-  z-index: 99999999;
-}
+
 .loading-icon {
   border: 6px solid #d5aa6d;
   border-radius: 50%;
