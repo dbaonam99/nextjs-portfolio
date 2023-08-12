@@ -6,8 +6,6 @@ import Layout from '@/layouts';
 import { CursorContext } from '@/contexts/CursorContext';
 import Project from '@/components/Project';
 
-import BackgroundLine from '@/components/BackgroundLine';
-
 function Portfolio() {
   const { updateHoverState } = useContext(CursorContext);
 
@@ -142,7 +140,6 @@ function Portfolio() {
   return (
     <Layout>
       <div className="Portfolio">
-        <BackgroundLine />
         <Project
           setOpenProject={setOpenProject}
           openProject={openProject}

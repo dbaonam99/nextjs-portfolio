@@ -5,7 +5,7 @@ import Home from '@/components/home';
 
 function HomePage() {
   return (
-    <Layout>
+    <Layout fullScreen>
       <Home />
     </Layout>
   );

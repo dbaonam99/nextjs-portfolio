@@ -16,7 +16,15 @@ const IntroLoading = dynamic(() => import('@/components/common/IntroLoading'), {
   ssr: false,
 });
 
-function Layout({ children }: { children: React.ReactNode }) {
+function Layout({
+  children,
+  title,
+  fullScreen,
+}: {
+  children: React.ReactNode;
+  title?: string;
+  fullScreen?: boolean;
+}) {
   const { introLoading } = useContext(LoadingContext);
 
   useEffect(() => {
@@ -29,9 +37,10 @@ function Layout({ children }: { children: React.ReactNode }) {
       <BackgroundLine />
       <ExpandCircle />
       <IntroLoading />
+
       {!introLoading && (
-        <Container>
-          <Header />
+        <Container fullScreen={fullScreen}>
+          <Header title={fullScreen ? undefined : title} />
 
           {/* <LoadingChildOut /> */}
 
@@ -43,5 +52,10 @@ function Layout({ children }: { children: React.ReactNode }) {
     </Cursor>
   );
 }
+
+Layout.defaultProps = {
+  title: '',
+  fullScreen: false,
+};
 
 export default Layout;

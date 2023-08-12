@@ -1,30 +1,30 @@
 import { useContext, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
 
 import { CursorContext } from '@/contexts/CursorContext';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
 
 export default function Project(props) {
-  const { openProject } = props;
-  const { setOpenProject } = props;
-  const { project } = props;
-  const projectBox = useRef();
+  // const { openProject } = props;
+  // const { setOpenProject } = props;
+  // const { project } = props;
+  // const projectBox = useRef();
 
-  const { updateHoverState } = useContext(CursorContext);
+  // const { updateHoverState } = useContext(CursorContext);
 
-  const settings = {
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    speed: 1000,
-    dots: false,
-    draggable: true,
-  };
+  // const settings = {
+  //   infinite: true,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   autoplay: true,
+  //   autoplaySpeed: 2000,
+  //   speed: 1000,
+  //   dots: false,
+  //   draggable: true,
+  // };
   return (
     <div
       className={
@@ -43,7 +43,7 @@ export default function Project(props) {
       }}
       style={{ height: `${window.innerHeight}px` }}
     >
-      {openProject && (
+      {/* {openProject && (
         <div className="project-info-box" ref={projectBox}>
           <div
             className="project-close flex-center"
@@ -114,7 +114,7 @@ export default function Project(props) {
           </Slider>
           <div className="project-info-list" />
         </div>
-      )}
+      )} */}
     </div>
   );
 }

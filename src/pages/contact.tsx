@@ -35,17 +35,9 @@ function Contact() {
   };
 
   return (
-    <Layout>
+    <Layout title="Contact">
       <div className="Contact">
-        <BackgroundLine />
         <div className="contact-container">
-          <div className="page-header flex-center">
-            <div className="page-title">Contact</div>
-            <div className="page-center-line" />
-            <div className="page-end-line flex">
-              <div className="line" />
-            </div>
-          </div>
           <div className="contact-box flex">
             <div className="contact-left flex-col">
               <div className="contact-text">

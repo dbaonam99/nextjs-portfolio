@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ fullScreen: boolean | undefined }>`
   position: relative;
-  background-color: #101010;
   width: 100%;
   height: 100%;
+  padding-top: ${({ fullScreen }) => (fullScreen ? '0' : '130px')};
 `;

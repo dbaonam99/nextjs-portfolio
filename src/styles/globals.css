@@ -30,8 +30,6 @@ body {
   margin: 0;
   color: rgb(var(--foreground-rgb));
   background: #101010;
-  font-family: 'Outfit';
-  user-select: none;
   font-weight: 700;
 }
 
@@ -359,4 +357,8 @@ template {
 
 [hidden] {
   display: none;
+}
+
+strong {
+  color: #45ff95;
 }
