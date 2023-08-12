@@ -7,6 +7,7 @@ import LoadingChildOut from '@/components/common/LoadingChildOut';
 import Cursor from '@/components/common/Cursor';
 import RouteLoading from '@/components/common/RouteLoading';
 import ExpandCircle from '@/components/common/ExpandCircle';
+import BackgroundLine from '@/components/common/BackgroundLine';
 
 const Header = dynamic(() => import('@/components/common/Header'), {
   ssr: false,
@@ -23,7 +24,7 @@ const Container = styled.div`
 `;
 
 function Layout({ children }: { children: React.ReactNode }) {
-  const { introLoading, tabChange } = useContext(LoadingContext);
+  const { introLoading } = useContext(LoadingContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -32,13 +33,14 @@ function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <Cursor>
+      <BackgroundLine />
       <ExpandCircle />
       <IntroLoading />
       {!introLoading && (
         <Container>
           <Header />
 
-          {tabChange && <LoadingChildOut />}
+          {/* <LoadingChildOut /> */}
 
           <RouteLoading />
 

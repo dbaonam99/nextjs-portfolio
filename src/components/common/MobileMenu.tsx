@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useContext, useRef, useState } from 'react';
+import { useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Div100VH from 'react-div-100vh';
@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import { CursorContext } from '@/contexts/CursorContext';
 import { NAVBAR_ITEMS } from '@/constants/constants';
 import { ExpandCircleContext } from '@/contexts/ExpandCircleContext';
+import { colors } from '@/constants/theme';
 
 const Container = styled(Div100VH)<{ isShow: boolean }>`
   position: fixed;
@@ -122,40 +123,20 @@ function MobileMenu({ redirect }: { redirect: (url: string) => void }) {
   const { updateHoverState } = useContext(CursorContext);
   const { showExpandCircle } = useContext(ExpandCircleContext);
 
-  const collapseRef = useRef() as React.MutableRefObject<HTMLInputElement>;
-
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
 
   const onMobileMenuClick = (event: { pageY: number; pageX: number }) => {
     showExpandCircle({
-      color: '#191919',
-      position: [`${event.pageY - 1500}px`, `${event.pageX - 1500}px`],
+      color: colors.base,
+      position: [event.pageY, event.pageX],
     });
-
-    setOpenMobileMenu(true);
-    // setTimeout(() => {
-    //   setOpenMobileMenu(true);
-    // }, 400);
-
-    // expandRef.current.style.backgroundColor = '#191919';
-    // expandRef.current.style.display = 'block';
-    // expandRef.current.style.top = `${event.pageY - 1500}px`;
-    // expandRef.current.style.left = `${event.pageX - 1500}px`;
-
-    // setTimeout(() => {
-    //   setOpenMobileMenu(true);
-    //   document.body.style.overflow = 'hidden';
-    // }, 500);
-
-    // setTimeout(() => {
-    //   expandRef.current.style.display = 'none';
-    // }, 1000);
+    setTimeout(() => {
+      setOpenMobileMenu(true);
+    }, 300);
   };
 
   return (
     <>
-      {/* <ExpandCircle ref={expandRef} />
-      <ExpandCircle ref={collapseRef} className="colapse" /> */}
       <Hamburger
         onClick={onMobileMenuClick}
         onMouseEnter={updateHoverState}
@@ -163,6 +144,7 @@ function MobileMenu({ redirect }: { redirect: (url: string) => void }) {
       >
         <FontAwesomeIcon icon={faBars} className="icon" />
       </Hamburger>
+
       <Container isShow={openMobileMenu}>
         <div
           className={
@@ -173,30 +155,20 @@ function MobileMenu({ redirect }: { redirect: (url: string) => void }) {
         >
           <Hamburger
             onClick={(event) => {
-              // collapseRef.current.style.backgroundColor = '#4bffa5';
-              // collapseRef.current.style.display = 'block';
-              // collapseRef.current.style.top = `${event.pageY - 1500}px`;
-              // collapseRef.current.style.left = `${event.pageX - 1500}px`;
-
-              // setTimeout(() => {
-              //   document.body.style.overflow = 'unset';
-              // }, 600);
-
-              // setTimeout(() => {
-              //   collapseRef.current.style.display = 'none';
-              // }, 1000);
-
-              // setTimeout(() => {
-              //   setOpenMobileMenu(false);
-              // }, 1500);
-
-              setOpenMobileMenu(false);
+              showExpandCircle({
+                color: colors.primary,
+                position: [event.pageY, event.pageX],
+              });
+              setTimeout(() => {
+                setOpenMobileMenu(false);
+              }, 500);
             }}
             onMouseEnter={updateHoverState}
             onMouseLeave={updateHoverState}
           >
             <FontAwesomeIcon icon={faTimes} className="icon" />
           </Hamburger>
+
           <div className="menu-mobile-item-box flex">
             <div className="menu-mobile-item-list flex-center flex-col">
               {NAVBAR_ITEMS.map(({ id, name, route }) => (

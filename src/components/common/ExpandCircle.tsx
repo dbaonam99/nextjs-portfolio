@@ -3,18 +3,19 @@ import { styled } from 'styled-components';
 
 import { ExpandCircleContext } from '@/contexts/ExpandCircleContext';
 
+const SIZE = 3000;
+
 const Container = styled.div`
-  width: 3000px;
-  height: 3000px;
+  position: fixed;
+  width: ${SIZE}px;
+  height: ${SIZE}px;
+  z-index: 999999999;
   display: none;
   border-radius: 50%;
-  position: absolute;
-  z-index: 99999999;
-
-  //   transform: translate(-50%, -50%);
   pointer-events: none;
   animation-name: expand;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
+  transition: 0.3s;
 
   @keyframes expand {
     0% {
@@ -43,19 +44,23 @@ function ExpandCircle() {
 
     const [top, left] = position;
 
-    expandRef.current.style.display = 'block';
     expandRef.current.style.opacity = '1';
     expandRef.current.style.backgroundColor = color;
-    expandRef.current.style.top = top;
-    expandRef.current.style.left = left;
+    expandRef.current.style.display = 'block';
+    expandRef.current.style.top = `${top - SIZE / 2}px`;
+    expandRef.current.style.left = `${left - SIZE / 2}px`;
 
-    // setTimeout(() => {
-    //   expandRef.current.style.opacity = '0';
-    // }, 1000);
+    setTimeout(() => {
+      document.body.style.overflow = 'hidden';
+    }, 500);
+
+    setTimeout(() => {
+      expandRef.current.style.opacity = '0';
+    }, 700);
 
     setTimeout(() => {
       expandRef.current.style.display = 'none';
-    }, 800);
+    }, 1000);
   }, [expandCircleAttributes]);
 
   return <Container ref={expandRef} />;

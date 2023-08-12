@@ -47,24 +47,23 @@ const Container = styled(Div100vh)<{ isShow: boolean; disabled: boolean }>`
   }
 
   @media only screen and (max-width: 700px) {
-    .react-typewriter-text {
+    .typing-text {
       font-size: 28px !important;
     }
   }
-
   @media only screen and (max-width: 600px) {
-    .react-typewriter-text {
+    .typing-text {
       font-size: 26px !important;
     }
   }
   @media only screen and (max-width: 550px) {
-    .react-typewriter-text {
+    .typing-text {
       font-size: 24px !important;
       letter-spacing: 5px !important;
     }
   }
   @media only screen and (max-width: 450px) {
-    .react-typewriter-text {
+    .typing-text {
       font-size: 22px !important;
     }
     .text-wrapper {
@@ -72,8 +71,8 @@ const Container = styled(Div100vh)<{ isShow: boolean; disabled: boolean }>`
     }
   }
   @media only screen and (max-width: 370px) {
-    .react-typewriter-text {
-      font-size: 6vw !important;
+    .typing-text {
+      font-size: 5vw !important;
     }
   }
 `;

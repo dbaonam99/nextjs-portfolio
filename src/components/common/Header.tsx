@@ -74,7 +74,7 @@ function Header() {
     setTabChangeFunc(true);
     setTimeout(() => {
       router.push(url);
-      setTabChangeFunc(false);
+      // setTabChangeFunc(false);
     }, 2000);
   };
 

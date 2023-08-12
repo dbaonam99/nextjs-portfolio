@@ -17,6 +17,7 @@
     "import/no-extraneous-dependencies": "off",
     "react/jsx-filename-extension": [0, { "extensions": [".tsx"] }],
     "react/react-in-jsx-scope": "off",
+    "import/prefer-default-export": ["off", { "target": "single" }],
     "react/jsx-props-no-spreading": [
       0,
       { "html": "ignore", "custom": "ignore", "explicitSpread": "ignore" }

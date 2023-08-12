@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 
 import { CursorContext } from '@/contexts/CursorContext';
 
-export default function LoadingChildOut(props) {
+export default function LoadingChildOut() {
   const { updateHoverState } = useContext(CursorContext);
 
   const [animation, setAnimation] = useState(false);
@@ -24,9 +24,7 @@ export default function LoadingChildOut(props) {
   return (
     <div
       className="loading-child loading-child-show"
-      onMouseMove={() => {
-        updateHoverState(false);
-      }}
+      onMouseMove={updateHoverState}
     >
       <div className="loading-line flex">
         <div

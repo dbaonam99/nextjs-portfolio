@@ -3,7 +3,7 @@ import React, { useMemo, useState } from 'react';
 
 type AttributesType = {
   color: string;
-  position: string[];
+  position: number[];
 };
 
 type ExpandCircleType = {
@@ -14,7 +14,7 @@ type ExpandCircleType = {
 export const ExpandCircleContext = React.createContext<ExpandCircleType>({
   expandCircleAttributes: {
     color: '',
-    position: ['', ''],
+    position: [0, 0],
   },
   showExpandCircle: ({ color, position }: AttributesType) => {},
 });
@@ -26,7 +26,7 @@ export function ExpandCircleProvider({
 }) {
   const [expandCircleAttributes, setAttributes] = useState({
     color: '',
-    position: ['', ''],
+    position: [0, 0],
   });
 
   const showExpandCircle = (attributes: AttributesType) => {
